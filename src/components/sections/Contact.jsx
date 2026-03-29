@@ -29,14 +29,14 @@ const Contact = () => {
     }
 
     emailjs.send(
-        'service_z140ld8',
-        'template_jfc566h',
+        import.meta.env.VITE_EMAIL_SERVICE_ID,
+        import.meta.env.VITE_EMAIL_TEMPLATE_ID,
         {
             from_name: formData.name,
             from_email: formData.email,
             message: formData.message,
         },
-        '-p5YqZ7UcQNNsZ0Pf'
+        import.meta.env.VITE_EMAIL_PUBLIC_KEY
     )
     .then(() => {
         setStatus({ type: 'success', message: "Message sent successfully!" });
